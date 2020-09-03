@@ -42,7 +42,8 @@ fun TextView.setSleepQualityString(item: SleepNight?) {
 
 
 @BindingAdapter("sleepImage")
-fun ImageView.setSleepImage(item: SleepNight) {
+fun ImageView.setSleepImage(item: SleepNight?) {
+    item?.let {
         setImageResource(when (item.sleepQuality) {
             0 -> R.drawable.ic_sleep_0
             1 -> R.drawable.ic_sleep_1
@@ -54,4 +55,5 @@ fun ImageView.setSleepImage(item: SleepNight) {
             5 -> R.drawable.ic_sleep_5
             else -> R.drawable.ic_sleep_active
         })
+    }
 }
